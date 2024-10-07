@@ -94,47 +94,61 @@ min_temps = [
 # You cannot use in-built functions like max(), min() or sort the lists
 # The use of len() is fine
 # You can do this in two individual loops, or a single loop if you wish 
-print(len(max_temps)) #365
 
-for xtemps in max_temps:
-    if xtemps<=80:
-        del(xtemps)
-    elif xtemps<=90:
-        del(xtemps)
-    else:
-        print(f'{xtemps} <----------------LOOK HERE')
-print("-----------------------------------------------") #this is just to help break up the data
-for ntemps in min_temps:
-    if ntemps>=0:
-        del(ntemps)
-    elif ntemps>=-20:
-        del(ntemps)
-    else:
-        print(f'{ntemps} <-----------------LOOK HERE')
+max_temp = 0
+min_temp = 0
 
+for i in range(len(max_temps)):
+    if max_temp < max_temps[i]:
+        max_temp = max_temps[i]
 
+for p in range(len(min_temps)):
+    if min_temp > min_temps[p]:
+        min_temp=min_temps[p]
 
-print("93 is the max of max_temps")
-print("-26 is the min of min_temps")
-
-#the stuff below this # are code
-print(f"Max temp = {max_temps}")
-print(f"Min temp = {min_temps}")
+print(f"Max temp = {max_temp}")
+print(f"Min temp = {min_temp}")
 
 # Given the below list 
 numbers = [-61, -76, 94, 21, 97, -4, 21, 56, -26, 9, 100, 56, -7, -32, 60, -68, -25, 3, -10, -83, 63, 0, 13, -99, 87, -46, -88, -71, 4, -99, -15, -12, 72, -1, -20, -90, 32, -36, -59, 83, 78, 52, 43, 55, 12, 16, -37, -5, -98, -53]
 # Count how many positive numbers occur, how many negative numbers occur, and how many times 0 occurs
 # You should print the number and the result within an f-string 
 # Example output: 83 is positive
+#neg=20 pos=17 0=1
 
-#the stuff below this # are code
-#print(f'There are {pos_count} positive numbers')
-#print(f'There are {neg_count} negative numbers')
-#print(f"Zero occurred {zero_count} time(s)")
+neg = 0
+pos = 0
+zero = 0
+
+for number in numbers:
+    if number > 0:
+        pos += 1
+    elif number == 0:
+        zero += 1
+    else:
+        neg += 1
+
+
+print(f'There are {pos} positive numbers')
+print(f'There are {neg} negative numbers')
+print(f"Zero occurred {zero} time(s)")
+
+
+
 
 # Given the same numbers list, give the sum of all positive numbers, and the sum of all negative numbers
 # This should be done within a single loop
+posi = 0
+negi = 0
+for num in numbers:
+    if num > 0:
+        posi += num
+    else:
+        negi += num
 
-#the stuff below this # are code
-#print(f"Sum of positive numbers {pos_sum}")
-#print(f"Sum of negative numbers {neg_sum}")
+
+        
+
+
+print(f"Sum of positive numbers {posi}")
+print(f"Sum of negative numbers {negi}")
